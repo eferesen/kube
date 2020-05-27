@@ -1,0 +1,21 @@
+controller:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: 'app'
+                operator: In
+                values:
+                  - nginx-ingress
+          topologyKey: 'kubernetes.io/hostname'
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 75
+    targetMemoryUtilizationPercentage: 75
+  service:
+    externalTrafficPolicy: Local
+rbac:
+  create: true

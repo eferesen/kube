@@ -1,0 +1,4 @@
+image:
+  tag: v0.5.0
+ingressShim.defaultIssuerName: letsencrypt-cluster-issuer
+ingressShim.defaultIssuerKind: ClusterIssuer
